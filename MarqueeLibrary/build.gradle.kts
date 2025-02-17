@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.disun.library.marqueelibrary"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 21
@@ -30,7 +30,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -66,7 +66,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.disun"
-                artifactId = "Marqueelibrary"
+                artifactId = "MarqueeLibrary"
                 version = "1.0.0"
             }
         }
