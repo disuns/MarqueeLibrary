@@ -5,7 +5,7 @@
 
 A customizable Android library providing marquee functionality.
 
-## ## Installation
+## Installation
 
 ### 1. Add JitPack Repository
 
