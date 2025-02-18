@@ -9,6 +9,7 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
 import androidx.core.animation.doOnEnd
+import androidx.core.content.res.ResourcesCompat
 import com.disun.library.marqueelibrary.databinding.MarqueeViewBinding
 import kotlin.math.max
 
@@ -24,6 +25,7 @@ class MarqueeView @JvmOverloads constructor(
     var marqueeTextDuration: Long = 10L
 
     var marqueeRepeatCount: Int = 0
+    var marqueeLeft: Boolean = true
 
     var marqueeText : String = ""
         set(value) {
@@ -65,6 +67,18 @@ class MarqueeView @JvmOverloads constructor(
                     binding.tvText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
                     marqueeTextSize = textSize
                 }
+                val fontResId = typedArray.getResourceId(R.styleable.MarqueeView_marqueeFontStyle, 0)
+                if(fontResId != 0){
+                    try {
+                        val typeface = ResourcesCompat.getFont(context, fontResId)
+                        binding.tvText.typeface = typeface
+                    } catch (e:Exception){
+                        e.printStackTrace()
+                    }
+                }
+
+                marqueeLeft = typedArray.getBoolean(R.styleable.MarqueeView_textDirLeft, true)
+
             }
         }
         binding.hsMarquee.setOnTouchListener{ _, _ -> true }
@@ -79,8 +93,16 @@ class MarqueeView @JvmOverloads constructor(
             val viewWidth = binding.tvText.width
             val containerWidth = binding.hsMarquee.width
 
-            val initialTranslationX = containerWidth.toFloat()+ (binding.tvText.width / 2).toFloat()
-            val finalTranslationX = -viewWidth.toFloat()
+            val initialTranslationX : Float
+            val finalTranslationX : Float
+
+            if(marqueeLeft){
+                initialTranslationX = containerWidth.toFloat()+ (binding.tvText.width / 2).toFloat()
+                finalTranslationX = -viewWidth.toFloat()
+            } else {
+                initialTranslationX = -viewWidth.toFloat()
+                finalTranslationX = containerWidth.toFloat()+ (binding.tvText.width / 2).toFloat()
+            }
 
             val ratio = if(containerWidth != 0 )viewWidth.toFloat() / containerWidth.toFloat() else 1f
             val scrollDurationMultiPlier = max(1f, ratio)
