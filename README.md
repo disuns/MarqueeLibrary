@@ -1,12 +1,12 @@
 
 ## MarqueeLibrary
----
+
 [![](https://jitpack.io/v/disuns/MarqueeLibrary.svg)](https://jitpack.io/#disuns/MarqueeLibrary)
 
 A customizable Android library providing marquee functionality.
 
 ## ## Installation
----
+
 ### 1. Add JitPack Repository
 
 Add the following to your project's `settings.gradle.kts` (root directory)
