@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MarqueeXmlView">
-        <attr name="duration" format="integer" />
-        <attr name="repeatCount" format="integer" />
+    <declare-styleable name="MarqueeView">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="marqueeHeight" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="marqueeFontStyle" format="string"/>
+        <attr name="textDirLeft" format="boolean"/>
     </declare-styleable>
 </resources>

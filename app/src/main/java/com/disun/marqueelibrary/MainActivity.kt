@@ -11,22 +11,41 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.disun.library.marqueelibrary.MarqueeView
 import com.disun.marqueelibrary.ui.theme.MarqueeLibraryTheme
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var marqueeView: MarqueeView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MarqueeLibraryTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+
+        setContentView(R.layout.activity_main)
+
+        marqueeView = findViewById(R.id.marqueeView)
+
+        marqueeView.marqueeText = "This is a marquee text."
+        marqueeView.marqueeTextDuration = 5L
+        marqueeView.marqueeRepeatCount = 1
+
+        marqueeView.startMarqueeAnimation()
+//        enableEdgeToEdge()
+//        setContent {
+//            MarqueeLibraryTheme {
+//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+//                }
+//            }
+//        }
+    }
+
+    override fun onDestroy() {
+        marqueeView.stopMarqueeAnimation()
+        super.onDestroy()
     }
 }
 

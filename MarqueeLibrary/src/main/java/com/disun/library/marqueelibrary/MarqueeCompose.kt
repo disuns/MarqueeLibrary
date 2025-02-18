@@ -1,18 +1,7 @@
-package com.disun.library.marqueelibrary.compose
+package com.disun.library.marqueelibrary
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.motion.widget.Animatable
 
 @SuppressLint("RememberReturnType")
 @Composable
