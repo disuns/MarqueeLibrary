@@ -2,6 +2,7 @@
 ## MarqueeLibrary
 ---
 [![](https://jitpack.io/v/disuns/MarqueeLibrary.svg)](https://jitpack.io/#disuns/MarqueeLibrary)
+
 A customizable Android library providing marquee functionality.
 
 ## ## Installation
