@@ -1,13 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-
+    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.maven.publish)
 }
 
 android {
     namespace = "com.disun.library.marqueelibrary"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 21
@@ -30,12 +30,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     buildFeatures {
-        compose = true // Compose 활성화
-        viewBinding = true // XML 뷰 바인딩 활성화
+        compose = true
+        viewBinding = true
     }
 
     composeOptions {
@@ -66,13 +66,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.disun"
-                artifactId = "marqueelibrary"
-                version = "1.0.0"
-            }
-            create<MavenPublication>("debug") {
-                from(components["debug"])
-                groupId = "com.github.disun"
-                artifactId = "marqueelibrary"
+                artifactId = "MarqueeLibrary"
                 version = "1.0.0"
             }
         }
