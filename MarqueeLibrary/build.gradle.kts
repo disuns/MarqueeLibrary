@@ -65,9 +65,9 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "com.github.disun"
+                groupId = "com.github.disuns"
                 artifactId = "MarqueeLibrary"
-                version = "1.0.4"
+                version = "1.0.6"
             }
         }
     }
