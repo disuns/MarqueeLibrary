@@ -18,7 +18,7 @@ maven { url = uri("https://jitpack.io") }
 
 Add the following to `build.gradle.kts` (app module)
 ```kotlin
-implementation("com.github.disun:MarqueeLibrary:1.0.4")
+implementation("com.github.disun:MarqueeLibrary:1.0.5")
 ```
 
 ### 3. Usage
